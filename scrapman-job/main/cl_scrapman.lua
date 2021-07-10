@@ -9,6 +9,16 @@ end)
 
 Citizen.CreateThread(function()
     while true do
+	   Citizen.Wait(0)
+
+	   if IsEntityPlayingAnim(GetPlayerPed(PlayerId()), "anim@gangops@facility@servers@bodysearch@", "player_search", 3) then
+            DisableAllControlActions(0, true)
+	   end
+    end
+end)
+
+Citizen.CreateThread(function()
+    while true do
         Citizen.Wait(0)
         local ped = GetPlayerPed(-1)
         local plyCoords = GetEntityCoords(GetPlayerPed(), ped)
@@ -130,10 +140,6 @@ function scrap()
           Citizen.Wait(9000)
         end
     end)
-
-    if IsEntityPlayingAnim(ped, "anim@gangops@facility@servers@bodysearch@", "player_search", 3) then
-       DisableAllControlActions(0)
-	end
 end
 
 function LoadDict(dict)
