@@ -10,8 +10,9 @@ end)
 Citizen.CreateThread(function()
     while true do
 	   Citizen.Wait(0)
+           local ped = GetPlayerPed(-1)
 
-	   if IsEntityPlayingAnim(GetPlayerPed(PlayerId()), "anim@gangops@facility@servers@bodysearch@", "player_search", 3) then
+	   if IsEntityPlayingAnim(ped, "anim@gangops@facility@servers@bodysearch@", "player_search", 3) then
               DisableAllControlActions(0, true)
 	   end
     end
